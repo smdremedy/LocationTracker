@@ -9,14 +9,8 @@ import java.util.concurrent.TimeUnit
 
 class App : Application() {
 
-    val locationApi: LocationApi by lazy {
-        val retrofit = Retrofit.Builder()
-            .addConverterFactory((GsonConverterFactory.create()))
-            .baseUrl("https://parseapi.back4app.com")
-            .build()
 
-        return@lazy retrofit.create<LocationApi?>(LocationApi::class.java)
-    }
+
 
     override fun onCreate() {
         super.onCreate()
@@ -26,5 +20,11 @@ class App : Application() {
                 .build()
 
         WorkManager.getInstance(this).enqueue(uploadWorkRequest)
+    }
+
+    companion object {
+        val component = DaggerAppComponent.builder()
+            .appModule(AppModule())
+            .build()
     }
 }

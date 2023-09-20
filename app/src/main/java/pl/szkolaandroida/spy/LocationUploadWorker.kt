@@ -18,7 +18,7 @@ class LocationUploadWorker(context: Context, workerParams: WorkerParameters) :
         ).build()
         val locations = db.locationDao().allLocations
 
-        val api = (applicationContext as App).locationApi
+        val api: LocationApi = App.component.getLocationApi()
 
         // Assuming you have a Retrofit instance to upload the locations
         //val apiService: ApiService = RetrofitInstance.apiService

@@ -42,6 +42,11 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation "androidx.room:room-runtime:2.5.2"
     kapt "androidx.room:room-compiler:2.5.2"
+    implementation 'com.google.dagger:dagger:2.48'
+    kapt 'com.google.dagger:dagger-compiler:2.48'
+    implementation 'com.google.dagger:dagger-android:2.48'
+    implementation 'com.google.dagger:dagger-android-support:2.48' // if you use the support libraries
+    kapt 'com.google.dagger:dagger-android-processor:2.48'
     implementation "androidx.work:work-runtime-ktx:2.7.1"
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'

@@ -25,6 +25,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.room.Room.databaseBuilder
 import java.util.Date
+import javax.inject.Inject
 import kotlin.concurrent.thread
 
 
@@ -37,6 +38,11 @@ class LocationNetworkService : Service() {
     private var wakeLock: WakeLock? = null
     private lateinit var telephonyManager: TelephonyManager
     private lateinit var db: AppDatabase
+
+    @Inject
+    lateinit var locationApi: LocationApi
+    @Inject
+    lateinit var sessionManager: SessionManager
 
     private val locationListener: LocationListener = object : LocationListener {
         override fun onLocationChanged(location: Location) {
@@ -73,6 +79,9 @@ class LocationNetworkService : Service() {
 
     override fun onCreate() {
         super.onCreate()
+
+        App.component.inject(this)
+
         db = databaseBuilder(
             applicationContext,
             AppDatabase::class.java,
