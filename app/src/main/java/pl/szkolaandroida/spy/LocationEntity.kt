@@ -5,7 +5,6 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "locations")
 data class LocationEntity(
-
     val latitude: Double,
     val longitude: Double,
     val timestamp: Long,

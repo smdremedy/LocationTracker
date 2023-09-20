@@ -8,7 +8,7 @@ import androidx.room.Query
 @Dao
 interface LocationDao {
     @Insert
-    fun insert(location: LocationEntity?): Long
+    suspend fun insert(location: LocationEntity?): Long
 
     // Add other queries, updates, deletes as needed
     @get:Query("SELECT * FROM locations")
@@ -16,4 +16,5 @@ interface LocationDao {
 
     @Delete
     fun delete(location: LocationEntity)
+
 }

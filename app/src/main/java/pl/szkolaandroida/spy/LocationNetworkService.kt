@@ -88,6 +88,7 @@ class LocationNetworkService : Service() {
             PowerManager.PARTIAL_WAKE_LOCK,
             "MyApp::MyWakelockTag"
         )
+
         wakeLock?.acquire()
     }
 
